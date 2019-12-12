@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="signup" parallel="tests">
+	<test name="MYBookie.ag" >
+	<parameter name="browser" value="firefox"></parameter>
+		<classes>
+			<class name="tests.VisaCard" />
+		</classes>
+	</test>
+	
+	<test name="MYBookie.ag1">
+	<parameter name="browser" value="chrome"></parameter>
+		<classes>
+			<class name="tests.VisaCard" />
+		</classes>
+	</test>
+</suite>
+	
+
+
