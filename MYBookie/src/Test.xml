@@ -1,8 +1,0 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="signup">
-	<test name="MYBookie.ag">
-		<classes>
-			<class name="tests.Signupmb" />
-		</classes>
-	</test>
-</suite>
