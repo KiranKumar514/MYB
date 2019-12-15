@@ -46,7 +46,6 @@ public class Signup{
 	// setting up in Chrome .
 	
 	@BeforeMethod
-	@BeforeTest
 	public void setUp(){
 		
 		System.setProperty("webdriver.chrome.driver","C:\\Users\\Kirankumar\\Selenuim\\Driver\\chromedriver.exe");
