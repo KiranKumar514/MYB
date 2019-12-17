@@ -1,8 +1,14 @@
 package test1;
 
 import org.testng.annotations.Test;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.apache.commons.io.FileUtils;
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 //import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -57,11 +63,6 @@ public class Signup{
 		driver.manage().window().maximize();
 	}
 	
-//	@BeforeMethod
-//	public void initURL() {
-//		driver.get(BASE_URL);
-//	//	loginpage.clearFields();
-//	}
 	
 	@Test(priority = 1, enabled = true, description = "TC03: Verify the user signup MB.ag with valid credentials")
 	public void validCredentials() throws InterruptedException {
@@ -103,9 +104,14 @@ public class Signup{
 		
 //	}
 		
-//	@AfterTest
-//	public void CleanUp(){
-//		driver.quit();
-//	}
-
+	@AfterTest
+	public void takeScreenshot() {
+		File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		try {
+			FileUtils.copyFile(srcFile, new File("./Screenshots/Screen.png"));
+			} catch (IOException e) {
+			e.printStackTrace();
+			}
+		
+		}
 }
