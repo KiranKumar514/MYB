@@ -6,6 +6,8 @@ import org.testng.annotations.BeforeMethod;
 import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -59,7 +61,6 @@ public class Signuptest{
 		driver.get(BASE_URL);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		signupdriver = PageFactory.initElements(driver, Signup1.class);
-		// depositdriver = PageFactory.initElements(driver, Cashier.class);
 		driver.manage().window().maximize();
 	}
 	
@@ -83,35 +84,21 @@ public class Signuptest{
 		signupdriver.setcity(City);
 		signupdriver.setstreet(Street);
 		signupdriver.setcreatemyaccount();
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
 	}
 	
-//	@Test (priority = 2, enabled = true, description = "TC02: Verify the deposit with valid credentials")
-//	public void verifydeposit () throws InterruptedException {
-//         
-//		depositdriver.setclose();
-//		Thread.sleep(1000);
-//	// 	depositdriver.setCashier();
-//		depositdriver.setvisa();
-//		depositdriver.setconfirmbutton();
-//		depositdriver.setCardNumber(CardName);
-//		depositdriver.setenternumber(cardnumber);
-//	    depositdriver.setexpmonth(DEPOMONTH);
-//	    depositdriver.setexpyear(DEPOSITYEAR);
-//		depositdriver.setcvnumber(cnum);
-//		depositdriver.setSubmit();
-//		// driver.quit();
-		
-//	}
-		
 	@AfterTest
-	public void takeScreenshot() {
+	public void takeScreenshot() throws IOException {
 		File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		try {
-			FileUtils.copyFile(srcFile, new File("./Screenshots/Screen.png"));
+		File dest = new File("./Screenshots/" + timestamp() +".png");
+		 try {
+		FileUtils.copyFile(srcFile,dest);
 			} catch (IOException e) {
 			e.printStackTrace();
 			}
-		
-		}
+	}
+	
+	public static String timestamp() {
+    return new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date());
+    }
 }
