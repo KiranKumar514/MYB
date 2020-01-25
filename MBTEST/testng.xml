@@ -2,7 +2,7 @@
 <suite name="signup">
 	<test name="MYBookie.ag" parallel="classes">
 		<classes>
-			<class name="test1.Signup" />
+			<class name="signup.Signuptest" />
  			</classes>
 	</test>
 </suite>
