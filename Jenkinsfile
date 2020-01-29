@@ -2,9 +2,9 @@ node('master') {
     stage('Checkout') {
         checkout scm
     }
-    stage('Run tests') {
+    stage('Build') {
          dir('MBTEST/pom.xml') {
-            sh 'mvn clean install -Dwebdriver.type=chrome -Dwebdriver.chrome.driver=C:Users/kiran.kumar/Selenium/Drivers/chromedriver.exe'
+            sh 'mvn clean install'
           }
       }
     }
