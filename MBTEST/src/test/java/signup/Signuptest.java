@@ -56,7 +56,7 @@ public class Signuptest{
 	@BeforeMethod
 	public void setUp(){
 		
-		System.setProperty("webdriver.chrome.driver","C:\\Users\\kiran.kumar\\Selenuim\\Drivers\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\kiran.kumar\\Selenium\\Drivers\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.get(BASE_URL);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
