@@ -4,7 +4,9 @@ node('master') {
     }
     stage('Build') {
          dir('MBTEST') {
+		 steps{
             sh 'mvn clean install'
           }
       }
     }
+ }
