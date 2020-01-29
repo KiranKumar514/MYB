@@ -3,8 +3,6 @@ node('master') {
         checkout scm
     }
     stage('Build') {
-         dir('MBTEST\pom.xml') {
-            sh 'mvn clean install'
-          }
-      }
+         sh 'mvn clean install'
+        }
     }
